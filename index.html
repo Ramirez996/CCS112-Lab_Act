@@ -22,7 +22,7 @@
     <!-- task app -->
     <div class="app">
         
-    <header class="header">
+        <header class="header">
             <p>Too-Du
                 <img src="https://cdn-icons-png.flaticon.com/128/1828/1828644.png" class="icon" alt="logo-icon">
             </p>
@@ -33,11 +33,40 @@
 
         </div>
 
+        <section class="view-table">  
 
-            <section class="view-table">
-
-
-            </section>
+            <!-- ADDING TASK-->
+            <div class="form-container">
+                    <h2>Create Task</h2>
+                    <form action="#" method="post">
+                      <div class="form-grouper">
+                        <label for="taskTitle">Task Title</label>
+                        <input type="text" id="task--title" name="taskTitle" placeholder="Enter task title">
+                      </div>
+                      
+                      <div class="form-grouper">
+                        <label for="taskDescription">Task Description</label>
+                        <textarea id="task--description" name="taskDescription" placeholder="Enter task description"></textarea>
+                      </div>
+                  
+                      <div class="form-grouper">
+                        <label for="taskDeadline">Task Deadline</label>
+                        <input type="date" id="task-deadline" name="taskDeadline">
+                      </div>
+                  
+                      <div class="form-grouper">
+                        <label for="taskPriority">Task Priority</label>
+                        <select id="task--priority" name="taskPriority">
+                          <option value="mustdo">Must Do</option>
+                          <option value="urgent">Urgent</option>
+                          <option value="canwait">Can wait</option>
+                        </select>
+                      </div>
+                      
+                      <button type="submit">Create Task</button>
+                    </form>
+            </div>   
+        </section>
 
 
             <section class="view-features">
