@@ -1,3 +1,7 @@
+<?php 
+require_once 'db_connect.php';
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -74,13 +78,24 @@
 
 
         <section class="view-table">  
-          <table style="width:100%">
+
+          <section class="tbl-view-body">
+          <section class="tbl-header">
+            <h1>Active Task</h1>
+
+            <div class="input-group">
+              <input type="search" placeholder="Search Task...">
+              <i class="fas fa-search"></i>
+            </div>
+          </section>
+          <table class="">
             <tr>
               <th>Task Id</th>
               <th>Title Description</th> 
               <th>Status</th>
               <th>Priority</th>
               <th>Deadline</th>
+              <th>Actions</th>
             </tr>
             <tr style="height: 50px;">
               <td><center>41</center></td>
@@ -89,22 +104,10 @@
               <td><center>sports</center></td>
               <td><center>1</center></td>
             </tr>
-            <tr style="height: 50px;">
-              <td><center>57</center></td>
-              <td><center>Jackson</center></td>
-              <td><center>single</center></td>
-              <td><center>music</center></td>
-              <td><center>5</center></td>
-            </tr>
-            <tr style="height: 50px;">
-              <td><center>025</center></td>
-              <td><center>Doe</center></td>
-              <td><center>widow</center></td>
-              <td><center>education</center></td>
-              <td><center>3</center></td>
-            </tr>
+         
           </table>
         </section>
+      </section>
 
 
         
