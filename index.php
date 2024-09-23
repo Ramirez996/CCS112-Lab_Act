@@ -1,5 +1,5 @@
 <?php 
-require_once 'db_connect.php';
+require_once 'cfg/db_connect.php';
 
 ?>
 
@@ -16,6 +16,7 @@ require_once 'db_connect.php';
     <link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet">
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <title>Too-Du -- Level up your productivity</title>
 
 </head>
@@ -44,32 +45,33 @@ require_once 'db_connect.php';
                         Create <span class="u-italic u-accent u-bolder">Task</span>‎ ‎ now!
                     </h1>
                       <p class="add-heading-text">Start your day by being productive.</p>
-                      <form action="blank" method="post">
+                      <form action="" method="post" id="form-group">
                         <div class="form-grouper">
                           <label for="taskTitle">Task Title</label>
-                          <input type="text" id="task--title" name="taskTitle" placeholder="Enter task title">
+                          <input type="text" id="task--title" name="title" placeholder="Enter task title">
                         </div>
                         
                         <div class="form-grouper">
                           <label for="taskDescription">Task Description</label>
-                          <textarea id="task--description" name="taskDescription" placeholder="Enter task description"></textarea>
+                          <textarea id="task--description" name="description" placeholder="Enter task description"></textarea>
                         </div>
                     
                         <div class="form-grouper">
                           <label for="taskDeadline">Task Deadline</label>
-                          <input type="date" id="task--deadline" name="taskDeadline">
+                          <input type="date" id="task--deadline" name="deadline">
                         </div>
                     
                         <div class="form-grouper">
                           <label for="taskPriority">Task Priority</label>
-                          <select id="task--priority" name="taskPriority">
-                            <option value="low">Low</option>
-                            <option value="high">High</option>
-                            <option value="critical">Critical</option>
+                          <select id="task--priority" name="priority">
+                          <option value="Low" selected hidden >Select Priority</option>
+                            <option value="Low">Low</option>
+                            <option value="High">High</option>
+                            <option value="Trivial">Trivial</option>
                           </select>
                         </div>
                         
-                        <button type="submit">Create Task</button>
+                        <button type="submit" name="submit_form">Create</button>
                       </form>
                 </div> 
             </section>  
@@ -133,6 +135,6 @@ require_once 'db_connect.php';
 
 
     
-    
+    <script src='function.js'></script>
 </body>
 </html>
