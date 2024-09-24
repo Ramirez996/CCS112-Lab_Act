@@ -241,7 +241,8 @@ textarea {
   font-family: "Satoshi", sans-serif;
 }
 
-button {
+.page button {
+  font-weight: 500;
   width: 100%;
   padding: 12px;
   background-color: #3574e5;
@@ -251,14 +252,19 @@ button {
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  text-transform: uppercase;
+  transition: all 0.5s ease;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 15px 30px 45px 7.5px;
+
 }
 
-button:hover {
+.page button:hover {
   background-color: #448bf6;
-}
-
-button:active {
-  background-color: #3167cc;
+  border-radius: 15px 30px 45px 7.5px;
+  transform: scale(1.05);
+  box-shadow: rgba(0, 0, 0, 0.6) 0px 4px 12px;
+ 
 }
 
 .u-italic {

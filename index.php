@@ -1,6 +1,5 @@
 <?php
-// require_once 'db_connect.php';
-
+require_once 'cfg/db_connect.php';
 
 ?>
 
@@ -22,6 +21,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
     integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
     crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
   <title>Too-Du -- Level up your productivity</title>
 
 </head>
@@ -39,38 +39,46 @@
     <!-- sidebar for adding task -->
     <div class="add-task-sidebar">
 
-      <!-- ADDING TASK -->
+
+      <!-- ADDING TASK-->
       <div class="form-container">
+
         <section class="create-task">
-          <h1 class="add-heading"> Create <span class="u-italic u-accent u-bolder">Task</span> now! </h1>
+          <h1 class="add-heading">
+            Create <span class="u-italic u-accent u-bolder">Task</span>now!
+          </h1>
           <p class="add-heading-text">Start your day by being productive.</p>
-          <form action="blank" method="post">
+          <form action="" method="post" id="form-group">
             <div class="form-grouper">
               <label for="taskTitle">Task Title</label>
-              <input type="text" id="task--title" name="taskTitle" placeholder="Enter task title">
+              <input type="text" id="task--title" name="title" placeholder="Enter task title">
             </div>
+
             <div class="form-grouper">
               <label for="taskDescription">Task Description</label>
-              <textarea id="task--description" name="taskDescription" placeholder="Enter task description"></textarea>
+              <textarea id="task--description" name="description" placeholder="Enter task description"></textarea>
             </div>
+
             <div class="form-grouper">
               <label for="taskDeadline">Task Deadline</label>
-              <input type="date" id="task--deadline" name="taskDeadline">
+              <input type="date" id="task--deadline" name="deadline">
             </div>
 
             <div class="form-grouper">
               <label for="taskPriority">Task Priority</label>
-              <select id="task--priority" name="taskPriority">
+              <select id="task--priority" name="priority">
+                <option value="Low" selected hidden>Select Priority</option>
                 <option value="low">Low</option>
                 <option value="high">High</option>
-                <option value="critical">Critical</option>
+                <option value="Trivial">Trivial</option>
               </select>
             </div>
 
-            <button type="submit">Create Task</button>
+            <button type="submit" name="submit_form">Create Task</button>
           </form>
-        </section>
       </div>
+      </section>
+
     </div>
 
 
@@ -131,30 +139,29 @@
     </div>
 
 
-    <!-- View Features Section -->
-    <section class="view-features">
 
+    <section class="view-features">
       <section class="feature">
         <i class="fas fa-cogs feature_icon feature_icon--1"></i>
         <h2 class="second-heading">Add Task</h2>
         <p class="feature-text">Add and customize your favorite task providing aesthetic feels.</p>
       </section>
-
       <section class="feature">
         <i class="fa fa-check-circle feature_icon feature_icon--2" aria-hidden="true"></i>
         <h2 class="second-heading">Prioritize Important Task</h2>
-        <p class="feature-text">Set priority and modify the status of each task.</p>
+        <p class="feature-text">Set priority and modify the status of each of every task.</p>
       </section>
-
       <section class="feature">
         <i class="fa fa-edit feature_icon feature_icon--3" aria-hidden="true"></i>
         <h2 class="second-heading">Change Task</h2>
-        <p class="feature-text">Change the task whenever you need a revision.</p>
+        <p class="feature-text">Change the task everytime you needed a revision for your day.</p>
       </section>
-
     </section>
-
   </div>
+
+
+
+  <script src='function.js'></script>
 </body>
 
 </html>
