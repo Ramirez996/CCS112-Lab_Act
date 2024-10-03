@@ -1,6 +1,6 @@
 <?php
 require_once 'cfg/db_connect.php';
-
+include 'fetch_task.php';
 ?>
 
 <!DOCTYPE html>
@@ -109,30 +109,25 @@ require_once 'cfg/db_connect.php';
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>41</td>
-              <td>Smith</td>
-              <td>married</td>
-              <td>sports</td>
-              <td>1</td>
-              <td>TRY</td>
-            </tr>
-            <tr>
-              <td>42</td>
-              <td>qwe</td>
-              <td>qwe</td>
-              <td>as</td>
-              <td>qw</td>
-              <td>TRY</td>
-            </tr>
-            <tr>
-              <td>23</td>
-              <td>qwe</td>
-              <td>asd</td>
-              <td>asd</td>
-              <td>asd</td>
-              <td>asd</td>
-            </tr>
+            <!-- fetch task section -->
+            <?php if (!empty($fetch_tasks)): ?>
+              <?php foreach ($fetch_tasks as $display_task): ?>
+                <tr>
+                  <td><?php echo htmlspecialchars(($display_task['taskId'])) ?></td>
+                  <td><?php echo htmlspecialchars(($display_task['taskTitle'])) ?></td>
+                  <td><?php echo htmlspecialchars(($display_task['taskDescription'])) ?></td>
+                  <td><?php echo htmlspecialchars(($display_task['taskDeadline'])) ?></td>
+                  <td><?php echo htmlspecialchars(($display_task['taskPriority'])) ?></td>
+                  <td>
+                  </td>
+                </tr>
+              <?php endforeach; ?>
+            <?php else: ?>
+              <tr>
+                <td colspan="7 style=" text-align: center">"Unfortunately no Task Exists"</td>
+              </tr>
+              <tr>
+              <?php endif; ?>
           </tbody>
         </table>
       </div>
