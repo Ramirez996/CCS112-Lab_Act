@@ -1,28 +1,30 @@
-//fix later got some important errands
-$(document).on("submit", "#form-group", function(e) {
+document.addEventListener('DOMContentLoaded', function() {
+    const add_task = document.querySelector('#add-task');
+    const form_container = document.querySelector('#form-task-container');
+  
+    add_task.addEventListener('click', function() {
+      form_container.classList.toggle('expanded');
+      add_task.innerHTML = form_container.classList.contains('expanded') ? '<i class="fas fa-times"></i>' :
+       '<i class="fas fa-plus"></i>';
+    });
+  }); 
+
+
+  $(document).on("submit", "#form-group", function (e) {
     e.preventDefault();
     $.ajax({
-        type:"post",
-        url:"process.php",
-        data:$(this).serialize(),
-        dataType:"text",
-        success:function(response){
-            console.log(response);
-            $("#form-group")[0].reset();
+      type: "post",
+      url: "create.php",
+      data: $(this).serialize(),
+      dataType: "json",
+      success: function (response) {
+        console.log(response);
         alert(response);
-        }
-    })
+      },
+    });
+  });    
 
-});
 
-$(document).ready(function() {
-    function dynamicTable() {
-        $.ajax({
-            url: "fetch_task.php",
-            type: "GET",
-            success: function (data) {  
-                $('tbody').html(data);
-            }
-        });
-    }
-})
+  $(document).on("click", ".task-row", function () {
+    $(this).next(".description-row").toggle();
+  });

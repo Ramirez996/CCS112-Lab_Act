@@ -84,11 +84,26 @@ button {
   grid-row: 2/4;
 }
 
-.view-table {
-  padding: 12px;
-  background-color: #eef3f4;
-  grid-column: 2/3;
-  grid-row: 2/3;
+.button-add-task {
+  margin: 24px;
+  padding: 13px 20px;
+  margin-bottom: 1rem;
+  margin-left: 15.5rem;
+  background-color: #fff;
+  border-radius: 50%;
+  border: 1px solid #fff;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 4px 12px;
+  transition: all 0.3s ease;
+}
+
+.button-add-task :hover, :focus {
+  border: 1px solid #fff;
+  border-radius: 50%;
+}
+
+.button-add-task i {
+  color: #2196f3;
 }
 
 
@@ -176,14 +191,26 @@ button {
   line-height: 1.2;
 }
 
-/* Form Styling */
+
 .form-container {
   background-color: #f7faff;
-  padding: 1rem;
-  padding-bottom: 2rem;
-  border-radius: 8px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease out;
+ 
+  border-radius: 24px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
+
+.form-container.expanded {
+  padding: 1rem;
+  padding-bottom: 2rem;
+  border-radius: 24px;
+  max-height: 100%;
+  transition: max-height 0.5s ease in;
+}
+
+
 
 .form-container > h2 {
   font-size: 20px;
@@ -198,73 +225,94 @@ button {
 }
 
 label {
-  font-size: 14px;
+  font-size: 18px;
   color: #333333;
   display: block;
   font-weight: bold;
   margin-bottom: 5px;
+  padding-left: 10px;
 }
 
 input[type="text"],
 input[type="date"],
 textarea,
-select {
+#task--priority {
   background-color: #f0f4ff;
   width: 100%;
   padding: 10px;
-  font-size: 16px;
+  font-size: 30px;
   color: #333;
-  border-radius: 4px;
+  border-radius: 24px;
   border: 1px solid #adc7ff;
-  transition: border-color 0.3s ease;
   box-sizing: border-box;
+  font: inherit;
 }
 
-input[type="text"]:focus,
-input[type="date"]:focus,
-textarea:focus,
-select:focus {
-  border-color: #3167cc;
-  outline: none;
+input[type="text"]::placeholder, 
+input[type="date"]::placeholder,
+textarea::placeholder,
+#task--priority::placeholder {
+  color: #333;
+  font-size: 18px;
 }
+
+
 
 ::-webkit-calendar-picker-indicator {
-  background-color: #fff;
+  background-color: #2196f3;
   padding: 5px;
   cursor: pointer;
   border-radius: 3px;
 }
 
-textarea {
-  resize: none;
-  min-height: 100px;
-  font-family: "Satoshi", sans-serif;
+input[type="date"] {
+  background-color: #2196f3;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-.page button {
-  font-weight: 500;
-  width: 100%;
+textarea {
+  resize: vertical;
+  min-height: 150px;
+  font-family: "Satoshi", sans-serif;
+  border-radius: 24px; 
+  transition: border 0.3s ease; 
+}
+
+textarea:focus {
+  outline: none;
+  border: 2px solid #2196f3;
+  border-radius: 24px; 
+}
+
+
+
+.btn-submit {
+  letter-spacing: 2px;
+  font-family: "Satoshi", sans-serif; 
+  font-weight: 700;
+  width: 50%;
   padding: 12px;
-  background-color: #3574e5;
+  background-color: #2196f3;
   color: #fff;
   border: none;
-  border-radius: 4px;
+  border-radius: 24px;
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s ease;
   text-transform: uppercase;
   transition: all 0.5s ease;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  border-radius: 15px 30px 45px 7.5px;
-
+  border-radius: 24px
 }
 
-.page button:hover {
-  background-color: #448bf6;
-  border-radius: 15px 30px 45px 7.5px;
+.btn-submit:hover {
+  background-color: #3574e5;
+  border-radius: 24px;        
   transform: scale(1.05);
   box-shadow: rgba(0, 0, 0, 0.6) 0px 4px 12px;
- 
 }
 
 .u-italic {
@@ -281,19 +329,39 @@ textarea {
 
 
 /* Table Styling */
-table {
-  width: 100%;
-  margin-top: 1rem; 
-  border-collapse: collapse;
+
+.view-table {
+  padding: 12px;
+  background-color: #eef3f4;
+  grid-column: 2/3;
+  grid-row: 2/3;
+  overflow: auto;
+}
+
+.view-table table {
+  border-collapse: separate;
+  border-spacing: 0 10px;
+  border-radius: 24px;
+  font-size: 16px;
+  font-weight: 500;
+  
+}
+
+
+
+table thead {
+  border-radius: 24px ;
 }
 
 th, td {
   padding: 1rem;
   text-align: center; 
-  border: 1px solid #ddd;
+ 
+ 
 }
 
 th {
+  white-space: nowrap;
   background-color: var(--primary--color); 
   color: white; 
   font-weight: bold;
@@ -301,15 +369,26 @@ th {
 
 table tr:nth-child(even) {
   background-color: #f9f9f9;
+  border-radius: 24px;
 }
+
 
 tr:hover, tr:nth-child(even):hover {
   background-color: #d1e7dd; 
+  border-radius: 24px;
 }
 
 input[type="search"]::-webkit-search-cancel-button {
   -webkit-appearance: none;
   appearance: none;
+}
+
+.task-description {
+  padding: 20px;
+  color: #fff;
+  background-color: #2196f3;
+  border-radius: 24px;
+  border-top: 1px solid #eee;
 }
 
 .tbl-header {
@@ -319,6 +398,7 @@ input[type="search"]::-webkit-search-cancel-button {
   padding-left: 12px;
   padding-right: 12px;
   margin-bottom: 1rem;
+  border-radius: 24px;
   background-color: var(--primary--color); 
 }
 
@@ -328,17 +408,21 @@ input[type="search"]::-webkit-search-cancel-button {
 }
 
 .active-header > p {
+  font:inherit;
   margin-left: 0.5rem;
-  font-weight: 500;
+  letter-spacing: 2px;
+  font-weight: 700;
   font-size: 24px;
   color: white;
   text-transform: uppercase;
 }
 
+
+
 .fa-circle {
-  color: rgb(25, 239, 25);
+  color: rgb(42, 207, 42);
   margin-left: 10px;
-  font-size: 24px;
+  font-size: 14px;
 }
 
 .search-container {
@@ -346,7 +430,7 @@ input[type="search"]::-webkit-search-cancel-button {
   align-items: center;
   background-color: #f0f4ff;
   border: 1px solid #adc7ff;
-  border-radius: 4px;
+  border-radius: 24px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   width: 300px;
 }
@@ -370,3 +454,44 @@ input[type="search"]::-webkit-search-cancel-button {
 .search-container i:hover {
   color: #3167cc;
 }
+
+/* Action Button Styles */
+.action-btn {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.action-btn:hover,:focus  {
+  transform: scale(1.05);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.edit-btn {
+  border: 5px solid #fff;
+  background-color: #fff;
+  color: white;
+  border-radius: 24px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.edit-btn i {
+  color: #8FD14F;
+}
+
+.delete-btn {
+  border: 5px solid #fff;
+  background-color: #fff;
+  color: white;
+  border-radius: 24px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.delete-btn i {
+  color: #ce3e34;
+}
+
