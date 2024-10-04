@@ -1,13 +1,12 @@
-<?php 
-include "cfg/db_connect.php";
+<?php
 
-try {
-    $sql = "select * from taskManage order by taskDeadline asc";
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute();
-    $fetch_tasks = $stmt->fetchAll(PDO::FETCH_ASSOC);
-} catch(PDOException $e) {
-    echo "Fetch Error: " .$e->getMessage();
-}
+require 'cfg/db_connect.php';
+
+$stmt = $pdo->prepare('select * from taskManage order by taskDeadline desc');
+
+$stmt->execute();
+
+$tasks = $stmt->fetchAll();
+
 
 ?>

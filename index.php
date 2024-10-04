@@ -39,43 +39,43 @@ include 'fetch_task.php';
     <!-- sidebar for adding task -->
     <div class="add-task-sidebar">
 
-
+      <button id="add-task" class="button-add-task"> <i class="fas fa-plus"></i></button>
       <!-- ADDING TASK-->
-      <div class="form-container">
+      <div class="form-container" id="form-task-container"">
 
-        <section class="create-task">
-          <h1 class="add-heading">
-            Create <span class="u-italic u-accent u-bolder">Task</span>now!
-          </h1>
-          <p class="add-heading-text">Start your day by being productive.</p>
-          <form action="" method="post" id="form-group">
-            <div class="form-grouper">
-              <label for="taskTitle">Task Title</label>
-              <input type="text" id="task--title" name="title" placeholder="Enter task title">
-            </div>
+        <section class=" create-task">
+        <h1 class="add-heading">
+          Create <span class="u-italic u-accent u-bolder">Task</span> now!
+        </h1>
+        <p class="add-heading-text">Start your day by being productive.</p>
+        <form action="" method="post" id="form-group">
+          <div class="form-grouper">
+            <label for="task--title">Task Title</label>
+            <input type="text" id="task--title" name="title" placeholder="Enter task title">
+          </div>
 
-            <div class="form-grouper">
-              <label for="taskDescription">Task Description</label>
-              <textarea id="task--description" name="description" placeholder="Enter task description"></textarea>
-            </div>
+          <div class="form-grouper">
+            <label for="task--description">Task Description</label>
+            <textarea id="task--description" name="description" placeholder="Enter task description"></textarea>
+          </div>
 
-            <div class="form-grouper">
-              <label for="taskDeadline">Task Deadline</label>
-              <input type="date" id="task--deadline" name="deadline">
-            </div>
+          <div class="form-grouper">
+            <label for="task--deadline">Task Deadline</label>
+            <input type="date" id="task--deadline" name="deadline">
+          </div>
 
-            <div class="form-grouper">
-              <label for="taskPriority">Task Priority</label>
-              <select id="task--priority" name="priority">
-                <option value="Low" selected hidden>Select Priority</option>
-                <option value="low">Low</option>
-                <option value="high">High</option>
-                <option value="Trivial">Trivial</option>
-              </select>
-            </div>
+          <div class="form-grouper">
+            <label for="task--priority">Task Priority</label>
+            <select id="task--priority" name="priority">
+              <option value="Low" selected hidden>Select Priority</option>
+              <option value="low">Low</option>
+              <option value="high">High</option>
+              <option value="Trivial">Trivial</option>
+            </select>
+          </div>
 
-            <button class="btn--addtask" type="submit" name="submit_form">Create Task</button>
-          </form>
+          <button type="submit" name="submit_form" class="btn-submit">Create <i class="fas fa-plus"></i></button>
+        </form>
       </div>
       </section>
 
@@ -101,44 +101,35 @@ include 'fetch_task.php';
           <thead>
             <tr>
               <th>Task Id</th>
-              <th>Title Description</th>
-              <th>Status</th>
+              <th>Title</th>
               <th>Priority</th>
               <th>Deadline</th>
               <th>Actions</th>
             </tr>
           </thead>
           <tbody>
-            <!-- fetch task section -->
-            <?php if (!empty($fetch_tasks)): ?>
-              <?php foreach ($fetch_tasks as $display_task): ?>
-                <tr>
-                  <td><?php echo htmlspecialchars(($display_task['taskId'])) ?></td>
-                  <td><?php echo htmlspecialchars(($display_task['taskTitle'])) ?></td>
-                  <td><?php echo htmlspecialchars(($display_task['taskDescription'])) ?></td>
-                  <td><?php echo htmlspecialchars(($display_task['taskDeadline'])) ?></td>
-                  <td><?php echo htmlspecialchars(($display_task['taskPriority'])) ?></td>
-                  <td>
-                    <button class="btn--edit">Edit</button>
-                    <button class="btn--delete">Delete</button>
-                  </td>
-                </tr>
-              <?php endforeach; ?>
-            <?php else: ?>
-              <tr>
-                <!-- <td colspan="7 style=" text-align: center">"Unfortunately no Task Exists"</td> -->
-                <!-- <td>Tryas</td>
-                <td>Try</td>
-                <td>Try</td>
-                <td>Try</td>
-                <td>Try</td>
+            <?php foreach ($tasks as  $task) : ?>
+
+              <tr class="task-row">
+                <td><?= $task['taskId'] ?></td>
+                <td><?= $task['taskTitle'] ?></td>
+                <td><?= $task['taskPriority'] ?></td>
+                <td><?= $task['taskDeadline'] ?></td>
                 <td>
-                  <button class="btn--edit">Edit</button>
-                  <button class="btn--delete">Delete</button>
-                </td> -->
+                  <button class="action-btn edit-btn"><i class="fas fa-marker"></i></button>
+                  <button class="action-btn delete-btn"><i class="fas fa-trash"></i></button>
+                </td>
+                <tr class="description-row" style="display: none;">
+                        <td colspan="5">
+                            <div class="task-description">
+                              Description: 
+                              <?= $task['taskDescription'] ?>
+                            </div>
+                        </td>
+                    </tr>
               </tr>
-              <tr>
-              <?php endif; ?>
+            <?php endforeach; ?>
+
           </tbody>
         </table>
       </div>
@@ -164,8 +155,6 @@ include 'fetch_task.php';
       </section>
     </section>
   </div>
-
-
 
   <script src='function.js'></script>
 </body>
