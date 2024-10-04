@@ -74,7 +74,7 @@ include 'fetch_task.php';
               </select>
             </div>
 
-            <button type="submit" name="submit_form">Create Task</button>
+            <button class="btn--addtask" type="submit" name="submit_form">Create Task</button>
           </form>
       </div>
       </section>
@@ -119,12 +119,23 @@ include 'fetch_task.php';
                   <td><?php echo htmlspecialchars(($display_task['taskDeadline'])) ?></td>
                   <td><?php echo htmlspecialchars(($display_task['taskPriority'])) ?></td>
                   <td>
+                    <button class="btn--edit">Edit</button>
+                    <button class="btn--delete">Delete</button>
                   </td>
                 </tr>
               <?php endforeach; ?>
             <?php else: ?>
               <tr>
-                <td colspan="7 style=" text-align: center">"Unfortunately no Task Exists"</td>
+                <!-- <td colspan="7 style=" text-align: center">"Unfortunately no Task Exists"</td> -->
+                <!-- <td>Tryas</td>
+                <td>Try</td>
+                <td>Try</td>
+                <td>Try</td>
+                <td>Try</td>
+                <td>
+                  <button class="btn--edit">Edit</button>
+                  <button class="btn--delete">Delete</button>
+                </td> -->
               </tr>
               <tr>
               <?php endif; ?>
