@@ -7,7 +7,7 @@
 }
 
 :root {
-    --primary--color: #5eaff2;
+  --primary--color: #5eaff2;
 }
 
 input {
@@ -97,7 +97,7 @@ button {
   transition: all 0.3s ease;
 }
 
-.button-add-task :hover, :focus {
+.button-add-task :hover {
   border: 1px solid #fff;
   border-radius: 50%;
 }
@@ -105,7 +105,6 @@ button {
 .button-add-task i {
   color: #2196f3;
 }
-
 
 .view-features {
   background-color: #e7edee;
@@ -191,13 +190,11 @@ button {
   line-height: 1.2;
 }
 
-
 .form-container {
   background-color: #f7faff;
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.5s ease out;
- 
   border-radius: 24px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
@@ -209,8 +206,6 @@ button {
   max-height: 100%;
   transition: max-height 0.5s ease in;
 }
-
-
 
 .form-container > h2 {
   font-size: 20px;
@@ -248,15 +243,13 @@ textarea,
   font: inherit;
 }
 
-input[type="text"]::placeholder, 
+input[type="text"]::placeholder,
 input[type="date"]::placeholder,
 textarea::placeholder,
 #task--priority::placeholder {
   color: #333;
   font-size: 18px;
 }
-
-
 
 ::-webkit-calendar-picker-indicator {
   background-color: #2196f3;
@@ -277,21 +270,19 @@ textarea {
   resize: vertical;
   min-height: 150px;
   font-family: "Satoshi", sans-serif;
-  border-radius: 24px; 
-  transition: border 0.3s ease; 
+  border-radius: 24px;
+  transition: border 0.3s ease;
 }
 
 textarea:focus {
   outline: none;
   border: 2px solid #2196f3;
-  border-radius: 24px; 
+  border-radius: 24px;
 }
-
-
 
 .btn-submit {
   letter-spacing: 2px;
-  font-family: "Satoshi", sans-serif; 
+  font-family: "Satoshi", sans-serif;
   font-weight: 700;
   width: 50%;
   padding: 12px;
@@ -305,12 +296,12 @@ textarea:focus {
   text-transform: uppercase;
   transition: all 0.5s ease;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  border-radius: 24px
+  border-radius: 24px;
 }
 
 .btn-submit:hover {
   background-color: #3574e5;
-  border-radius: 24px;        
+  border-radius: 24px;
   transform: scale(1.05);
   box-shadow: rgba(0, 0, 0, 0.6) 0px 4px 12px;
 }
@@ -327,7 +318,6 @@ textarea:focus {
   font-weight: 700;
 }
 
-
 /* Table Styling */
 
 .view-table {
@@ -339,56 +329,76 @@ textarea:focus {
 }
 
 .view-table table {
+  width: 100%;
   border-collapse: separate;
   border-spacing: 0 10px;
   border-radius: 24px;
   font-size: 16px;
   font-weight: 500;
-  
 }
 
-
+.task-description {
+  padding: 20px;
+  color: #333;
+  background-color: #fff;
+  border-radius: 24px;
+  border-top: 1px solid #eee;
+}
 
 table thead {
-  border-radius: 24px ;
+  background-color: var(--primary--color);
 }
 
-th, td {
+th,
+td {
   padding: 1rem;
-  text-align: center; 
- 
- 
+  text-align: center;
+  border-bottom: 1px solid #eef3f4;
+}
+
+.task-row {
+  transition: background-color 0.3s ease;
+  font-size: 15px;
+}
+
+.task-row:hover {
+  background-color: #d1e7dd;
 }
 
 th {
   white-space: nowrap;
-  background-color: var(--primary--color); 
-  color: white; 
+  color: white;
   font-weight: bold;
 }
 
-table tr:nth-child(even) {
-  background-color: #f9f9f9;
-  border-radius: 24px;
+tr:last-child td {
+  border-bottom: none;
 }
 
+tbody tr:hover {
+  background-color: #d1e7dd;
+  transition: background-color 0.3s ease;
+}
 
-tr:hover, tr:nth-child(even):hover {
-  background-color: #d1e7dd; 
-  border-radius: 24px;
+thead tr:first-child th:first-child {
+  border-top-left-radius: 24px;
+}
+
+thead tr:first-child th:last-child {
+  border-top-right-radius: 24px;
+}
+
+tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 24px;
+}
+
+tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 24px;
 }
 
 input[type="search"]::-webkit-search-cancel-button {
   -webkit-appearance: none;
   appearance: none;
-}
-
-.task-description {
-  padding: 20px;
-  color: #fff;
-  background-color: #2196f3;
-  border-radius: 24px;
-  border-top: 1px solid #eee;
 }
 
 .tbl-header {
@@ -399,7 +409,7 @@ input[type="search"]::-webkit-search-cancel-button {
   padding-right: 12px;
   margin-bottom: 1rem;
   border-radius: 24px;
-  background-color: var(--primary--color); 
+  background-color: var(--primary--color);
 }
 
 .active-header {
@@ -408,7 +418,7 @@ input[type="search"]::-webkit-search-cancel-button {
 }
 
 .active-header > p {
-  font:inherit;
+  font: inherit;
   margin-left: 0.5rem;
   letter-spacing: 2px;
   font-weight: 700;
@@ -416,8 +426,6 @@ input[type="search"]::-webkit-search-cancel-button {
   color: white;
   text-transform: uppercase;
 }
-
-
 
 .fa-circle {
   color: rgb(42, 207, 42);
@@ -464,7 +472,7 @@ input[type="search"]::-webkit-search-cancel-button {
   transition: all 0.3s ease;
 }
 
-.action-btn:hover,:focus  {
+.action-btn:hover {
   transform: scale(1.05);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -479,7 +487,7 @@ input[type="search"]::-webkit-search-cancel-button {
 }
 
 .edit-btn i {
-  color: #8FD14F;
+  color: #8fd14f;
 }
 
 .delete-btn {
@@ -495,3 +503,67 @@ input[type="search"]::-webkit-search-cancel-button {
   color: #ce3e34;
 }
 
+.swal-button {
+  background-color: #fff;
+  color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 24px;
+  font-weight: 600;
+  font: inherit;
+  font-size: 16px;
+  padding: 10px 24px;
+  border: 1px solid #fff;
+  cursor: pointer;
+}
+
+.swal-button:not([disabled]):hover {
+  background-color: #333;
+  color: #fff;
+}
+
+.swal-button:active {
+  background-color: #333;
+  color: #fff;
+}
+
+.swal-button:focus {
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px rgba(43, 114, 165, 0.29);
+}
+
+.swal-button--cancel {
+  color: #555;
+  background-color: #efefef;
+}
+
+.swal-button--cancel:not([disabled]):hover {
+  background-color: #e8e8e8;
+}
+
+.swal-button--cancel:active {
+  background-color: #d7d7d7;
+}
+
+#edit-task-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#edit-task-form label {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.swal2-textarea {
+  border: 1px solid #ccc;
+  border-radius: 24px;
+  padding: 10px;
+  width: 80%;
+  height: 100px;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+}
+
+.swal2-input {
+  width: 80% !important; 
+}
