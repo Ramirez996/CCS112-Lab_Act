@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-    <title>Too-Duu -- Level up your productivity</title>
+    <title>Too-Duuu -- Level up your productivity</title>
   </head>
 
   <!-- outer page used later for resizing-->
